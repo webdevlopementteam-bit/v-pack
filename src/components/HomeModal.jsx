@@ -19,7 +19,8 @@ const homeFormSchema = z.object({
     .trim()
     .min(1, "Mobile number is required.")
     .regex(/^[0-9]+$/, "Mobile number must contain only digits.")
-    .length(10, "Mobile number must be exactly 10 digits."),
+    .min(10, "Mobile number must be at least 10 digits.")
+    .max(12, "Mobile number must not exceed 12 digits."),
 
   service: z.string().trim().min(1, "Please select a service."),
 
@@ -155,7 +156,7 @@ export default function HomeModal() {
       const form = new FormData();
 
       // Web3Forms Access Key
-      form.append("access_key", "123456");
+      form.append("access_key", "60ca872b-d91c-40f9-b0ca-c61a9b94096c");
 
       // Form Data
       form.append("first_name", firstName);
