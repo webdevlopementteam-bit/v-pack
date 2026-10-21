@@ -264,12 +264,12 @@ export default function WaterIssuesPage() {
             <p className="text-gray-700">
               Contact us today or visit{" "}
               <a
-                href="https://www.vpackmachine.com"
+                href="https://www.vpackmachine.in"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 "
               >
-                www.vpackmachine.com
+                www.vpackmachine.in
               </a>{" "}
               for expert advice and support. Let’s build better, together.
             </p>

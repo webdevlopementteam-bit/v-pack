@@ -13,6 +13,12 @@ import {
   Globe,
 } from "lucide-react";
 
+export const metadata = {
+  alternates: {
+    canonical: "/terms-conditions",
+  },
+};
+
 export default function TermsConditionsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-100 text-slate-800 py-12 px-4 sm:px-6 lg:px-8">

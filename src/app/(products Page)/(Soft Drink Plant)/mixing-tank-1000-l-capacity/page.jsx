@@ -7,7 +7,7 @@ export const metadata = {
   keywords: ["", ""],
 
   alternates: {
-    canonical: "",
+    canonical: "/mixing-tank-1000-l-capacity",
   },
 };
 

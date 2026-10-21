@@ -7,7 +7,7 @@ export const metadata = {
   keywords: ["", ""],
 
   alternates: {
-    canonical: "",
+    canonical: "/industrial-chiller-machine",
   },
 };
 

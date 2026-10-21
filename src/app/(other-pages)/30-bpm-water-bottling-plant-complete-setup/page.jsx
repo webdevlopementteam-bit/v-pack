@@ -7,7 +7,7 @@ export const metadata = {
   keywords: ["", ""],
 
   alternates: {
-    canonical: "",
+    canonical: "/30-bpm-water-bottling-plant-complete-setup",
   },
 };
 

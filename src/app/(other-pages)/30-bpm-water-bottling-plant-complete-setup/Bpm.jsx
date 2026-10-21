@@ -433,7 +433,7 @@ export default function ThirtyBpmPlantPage() {
             <p>
               Website:{" "}
               <Link href="/" className="text-blue-600 ">
-                www.vpackmachine.com
+                www.vpackmachine.in
               </Link>
             </p>
             <p className="font-bold">

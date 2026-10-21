@@ -7,7 +7,7 @@ export const metadata = {
   keywords: ["", ""],
 
   alternates: {
-    canonical: "",
+    canonical: "/ss-blending-tank-manufacturer",
   },
 };
 

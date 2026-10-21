@@ -7,7 +7,7 @@ export const metadata = {
   keywords: ["", ""],
 
   alternates: {
-    canonical: "",
+    canonical: "/mineral-water-business-plan-machines-investment-profits",
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata = {
   keywords: ["", ""],
 
   alternates: {
-    canonical: "",
+    canonical: "/how-to-choose-the-right-capacity-bottling-plant",
   },
 };
 

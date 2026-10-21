@@ -12,6 +12,12 @@ import VpackWhyChooseUs from "@/sections/VpackWhyChooseUs";
 import WhyWeAreDifferent from "@/sections/WhyWeAreDifferent";
 import React from "react";
 
+export const metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
 function page() {
   return (
     <>

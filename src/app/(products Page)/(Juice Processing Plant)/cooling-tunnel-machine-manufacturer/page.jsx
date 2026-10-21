@@ -7,7 +7,7 @@ export const metadata = {
   keywords: ["", ""],
 
   alternates: {
-    canonical: "",
+    canonical: "/cooling-tunnel-machine-manufacturer",
   },
 };
 

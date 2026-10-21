@@ -8,7 +8,7 @@ export const metadata = {
   keywords: ["", ""],
 
   alternates: {
-    canonical: "",
+    canonical: "/agitator-tank",
   },
 };
 

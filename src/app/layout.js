@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/Floating";
 import HomeModal from "@/components/HomeModal";
+import { SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Vpack Machine - Mineral Water Plant manufacturer in Delhi",
   description:
     "Vpack Machine Pvt. Ltd. is your trusted partner for advanced, reliable machinery solutions in the water, beverage, and pharma sectors.",

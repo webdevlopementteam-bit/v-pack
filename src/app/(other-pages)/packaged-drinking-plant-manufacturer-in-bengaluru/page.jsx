@@ -7,7 +7,7 @@ export const metadata = {
   keywords: ["", ""],
 
   alternates: {
-    canonical: "",
+    canonical: "/packaged-drinking-plant-manufacturer-in-bengaluru",
   },
 };
 

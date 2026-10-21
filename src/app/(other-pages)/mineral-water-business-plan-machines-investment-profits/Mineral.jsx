@@ -533,7 +533,7 @@ export default function MineralWaterPlantPage() {
                 href="/www.vpackmachine.in"
                 className="inline-flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg text-base"
               >
-                <span>🌐 Visit:</span> www.vpackmachine.com
+                <span>🌐 Visit:</span> www.vpackmachine.in
               </Link>
             </div>
           </div>
