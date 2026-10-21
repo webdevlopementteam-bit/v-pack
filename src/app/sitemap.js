@@ -57,19 +57,19 @@ const legalPages = ["/privacy-policy", "/terms-conditions", "/disclaimer"];
 
 export default function sitemap() {
   const lastModified = new Date();
-  const entry = (path, priority, changeFrequency) => ({
+  const entry = (path, priority) => ({
     url: `${SITE_URL}${path}`,
     lastModified,
-    changeFrequency,
+    changeFrequency: "daily",
     priority,
   });
 
   return [
-    entry("", 1, "weekly"),
-    ...mainPages.map((p) => entry(p, 0.8, "monthly")),
-    ...productPages.map((p) => entry(p, 0.9, "monthly")),
-    ...servicePages.map((p) => entry(p, 0.8, "monthly")),
-    ...blogPages.map((p) => entry(p, 0.7, "monthly")),
-    ...legalPages.map((p) => entry(p, 0.3, "yearly")),
+    entry("", 1),
+    ...mainPages.map((p) => entry(p, 0.8)),
+    ...productPages.map((p) => entry(p, 0.9)),
+    ...servicePages.map((p) => entry(p, 0.8)),
+    ...blogPages.map((p) => entry(p, 0.7)),
+    ...legalPages.map((p) => entry(p, 0.3)),
   ];
 }
