@@ -4,6 +4,133 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { faqs } from "./faqs";
+
+const specifications = [
+  ["Standard capacity", "60 BPM (from 30 BPM; higher on request)"],
+  ["Bottle size", "180 ml – 2,000 ml"],
+  ["Material", "SS 304 food-grade"],
+  ["Power", "20 kW"],
+  ["Supply", "380 V, 50 Hz, three phase"],
+  ["Air conveyor", "15 ft"],
+];
+
+const processSteps = [
+  ["Washing and sorting", "removes dirt and damaged fruit."],
+  [
+    "Pulping and extraction",
+    "the fruit pulper separates pulp from seeds and skin.",
+  ],
+  [
+    "Blending",
+    "pulp, water, sugar and additives mixed in SS blending and agitator tanks.",
+  ],
+  ["Filtration", "for clear juices."],
+  ["Homogenization", "uniform texture, no settling."],
+  [
+    "Pasteurization",
+    "kills microbes while keeping taste; plate or tubular heat exchangers are chosen by juice thickness.",
+  ],
+  ["Hot filling and capping", "on the juice RFC machine."],
+  [
+    "Cooling tunnel",
+    "cools bottles quickly to protect flavour, colour and bottle shape.",
+  ],
+  ["Labeling and packing", ""],
+];
+
+const machines = [
+  {
+    name: "Fruit Pulper Machine",
+    href: "/fruit-pulper-machine",
+    role: "Extracts pulp from mango, guava, tomato and more",
+  },
+  {
+    name: "SS Blending Tank",
+    href: "/ss-blending-tank-manufacturer",
+    role: "Mixes the juice formulation",
+  },
+  {
+    name: "Agitator Tank",
+    href: "/agitator-tank",
+    role: "Keeps pulp and syrup evenly mixed",
+  },
+  { name: "Homogenizer", href: "/homogenizer", role: "Uniform texture" },
+  {
+    name: "Pasteurizer (200 LPH)",
+    href: "/pasteurizer-200-lph",
+    role: "Microbiological safety and shelf life",
+  },
+  { name: "Juice RFC Machine", role: "Rinses, fills and caps" },
+  {
+    name: "Cooling Tunnel Machine",
+    href: "/cooling-tunnel-machine-manufacturer",
+    role: "Cools hot-filled bottles",
+  },
+];
+
+const startSteps = [
+  [
+    "Pick your products",
+    "choose the fruits and pack sizes (180 ml to 2 L) that sell in your market.",
+  ],
+  [
+    "Get licences",
+    "an FSSAI licence is required for fruit beverages, along with GST registration and State Pollution Control Board consent where applicable.",
+  ],
+  [
+    "Plan space and utilities",
+    "lay out areas for processing, filling, cooling and storage, and plan power, water and steam supply for the pasteurizer.",
+  ],
+  [
+    "Select machines",
+    "fruit pulper, blending and agitator tanks, homogenizer, pasteurizer, juice RFC machine and cooling tunnel, sized to your daily output.",
+  ],
+  [
+    "Install and train",
+    "V-Pack Machine installs the line and trains your operators on hygiene.",
+  ],
+  [
+    "Run trial batches",
+    "test taste, colour and shelf life before full launch.",
+  ],
+];
+
+const juiceTypes = [
+  ["Pulpy juices", "Mango, guava, papaya"],
+  ["Clear juices", "Apple, grape, pomegranate"],
+  ["Citrus", "Orange, lemon, pineapple"],
+  ["Blends", "Mixed fruit"],
+];
+
+function DataTable({ headers, rows }) {
+  return (
+    <div className="overflow-x-auto border border-gray-300 rounded-sm">
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr className="border-b border-gray-300 bg-gray-50">
+            <th className="p-3 sm:p-4 font-bold text-gray-800 w-1/2 border-r border-gray-300 text-center">
+              {headers[0]}
+            </th>
+            <th className="p-3 sm:p-4 font-bold text-gray-800 w-1/2 text-center">
+              {headers[1]}
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200">
+          {rows.map(([label, value], i) => (
+            <tr key={i}>
+              <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
+                {label}
+              </td>
+              <td className="p-3 sm:p-4 text-gray-700">{value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 export default function FruitJuiceRFCPage() {
   const handleCall = () => {
@@ -33,9 +160,9 @@ export default function FruitJuiceRFCPage() {
     <div className="w-full bg-white text-gray-700 text-[16px] lg:text-[18px] leading-relaxed selection:bg-blue-100">
       {/* Top Hero Banner */}
       <div className="bg-[#dbe3eb] min-h-[120px] md:min-h-[140px] px-4 py-4 flex items-center justify-center">
-        <h1 className="text-xl sm:text-3xl md:text-4xl font-bold text-[#0B2545] tracking-wide text-center uppercase">
-          FRUIT JUICE RFC MACHINE
-        </h1>
+        <p className="text-xl sm:text-3xl md:text-4xl font-bold text-[#0B2545] tracking-wide text-center uppercase">
+          FRUIT JUICE PLANT MANUFACTURER
+        </p>
       </div>
 
       {/* Main Content Container */}
@@ -55,7 +182,7 @@ export default function FruitJuiceRFCPage() {
               <div className="relative w-full h-64 sm:h-72 my-2">
                 <Image
                   src="/images/products/fruit2.png"
-                  alt="Juice RFC Machine"
+                  alt="Fruit juice plant with juice RFC machine by V-Pack Machine, Delhi"
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                   className="object-contain"
@@ -77,9 +204,8 @@ export default function FruitJuiceRFCPage() {
 
             {/* Short Description */}
             <p className="text-gray-600 text-[16px] lg:text-[18px]">
-              Designed for seamless rinsing, filling, and capping, the Vpack
-              Juice RFC Machine ensures consistent performance and hygiene in
-              juice packaging operations.
+              Rinses, fills and caps juice bottles from 180 ml to 2 litres at a
+              standard 60 BPM, built in SS 304 food-grade steel.
             </p>
 
             {/* Call Now Button */}
@@ -104,286 +230,209 @@ export default function FruitJuiceRFCPage() {
             {/* Title Section */}
             <div className="space-y-2">
               <h1 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-[#0B2545] leading-tight">
-                Fruit Juice Plant Manufacturer in Delhi
+                Fruit Juice Plant Manufacturer In Delhi - V Pack Machine
               </h1>
               <div className="flex text-amber-400 text-xl md:text-2xl">
                 ★★★★★
               </div>
             </div>
 
-            {/* Main Content Paragraphs */}
-            <div className="space-y-4 pt-2 text-[16px] lg:text-[18px]">
-              <p className="text-gray-600">
-                The Vpack Juice RFC Machine is an advanced solution built for
-                the automatic rinsing, filling, and capping of synthetic and
-                natural juices. As a trusted{" "}
-                <Link
-                  href="/contact"
-                  className="text-blue-600 font-bold italic"
-                >
-                  Fruit Juice Plant Manufacturer in Delhi
-                </Link>
-                , this machine is engineered to meet high industry standards
-                with efficiency and hygiene. Fabricated with durable{" "}
+            {/* Quick Answer */}
+            <div className="bg-blue-50 border-l-4 border-blue-600 rounded-sm p-4 sm:p-5 text-[16px] lg:text-[18px]">
+              <p className="text-gray-700">
+                <strong className="text-gray-800">Quick Answer:</strong> V-Pack
+                Machine Pvt. Ltd. is a{" "}
                 <strong className="text-gray-800">
-                  SS 304 stainless steel
+                  fruit juice plant manufacturer in Delhi
                 </strong>
-                , this machine offers a hygienic and efficient production flow.{" "}
-                <strong className="text-gray-800">
-                  With a packaging range from 180 to 2000 ML and speed ranging
-                  from 30 to 300 bottles per minute
-                </strong>
-                , it's perfectly suited for scaling juice production.
-              </p>
-
-              <p className="text-gray-600">
-                The machine is part of a complete juice processing line,
-                designed by leading{" "}
-                <Link href="/contact" className="text-blue-600 font-bold">
-                  Fruit Juice Plant Manufacturer
-                </Link>
-                , and capable of handling a wide variety of fruits like mango,
-                orange, guava, lemon, pineapple, and more. Depending on the
-                juice viscosity, plate or tubular heat exchangers are used for
-                optimal processing. Whether it's clear juices like apple and
-                grape or pulpy ones like mango and papaya, this system delivers
-                uncompromising quality.
-              </p>
-
-              <p className="text-gray-600">
-                As an experienced{" "}
-                <strong className="text-gray-800">
-                  Fruit Juice Plant Manufacturer
-                </strong>
-                , Vpack Machine provides turnkey solutions that simplify
-                operations and reduce manual intervention. Our fruit juice
-                plants are suitable for processing a wide range of fruits such
-                as mango, orange, apple, pineapple, pomegranate, mixed fruit,
-                and more.
+                . Its juice lines take fresh fruit through pulping, blending,
+                homogenization and pasteurization (200 LPH), then hot-fill
+                bottles from 180 ml to 2 litres on a 60 BPM juice RFC machine
+                and cool them in a cooling tunnel — all built in SS 304
+                food-grade steel by a team with 14 years of experience.
               </p>
             </div>
 
             {/* Technical Specifications Table */}
-            <div className="pt-4 text-[16px] lg:text-[18px]">
-              <div className="overflow-x-auto border border-gray-300 rounded-sm">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="border-b border-gray-300 bg-gray-50">
-                      <th className="p-3 sm:p-4 font-bold text-gray-800 w-1/2 border-r border-gray-300 text-center">
-                        Technical Specifications
-                      </th>
-                      <th className="p-3 sm:p-4 font-bold text-gray-800 w-1/2 text-center">
-                        Details
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Material of Construction
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">SS 304</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Capacity
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">60 BPM</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Range
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">
-                        30 to 300 BPM
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Voltage
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">380 V</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Power Consumption
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">20 kW</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Packaging Size
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">
-                        180 to 2000 ML
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Air Conveyor Length
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">15 Feet</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Machine Power
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">0–40 kW</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Frequency
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">50 Hz</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Phase
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">Three Phase</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Material
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">
-                        Stainless Steel
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        End Product
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">Juice</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 sm:p-4 text-gray-700 border-r border-gray-200">
-                        Automation Grade
-                      </td>
-                      <td className="p-3 sm:p-4 text-gray-700">Automatic</td>
-                    </tr>
-                  </tbody>
-                </table>
+            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
+                Technical Specifications
+              </h2>
+              <DataTable
+                headers={["Specification", "Value"]}
+                rows={specifications}
+              />
+            </div>
+
+            {/* What Is a Fruit Juice Plant? */}
+            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
+                What Is a Fruit Juice Plant?
+              </h2>
+              <p className="text-gray-600">
+                A fruit juice plant is a complete production line that turns
+                fresh fruit into sealed, shelf-stable bottled juice. It covers
+                every step — washing, pulping, blending, homogenization,
+                pasteurization, filling, cooling and packing — so the juice is
+                safe, smooth and tastes the same in every bottle.
+              </p>
+              <p className="text-gray-600">
+                The heart of the line is the{" "}
+                <strong className="text-gray-800">juice RFC machine</strong>,
+                which rinses, fills and caps bottles in one pass. The processing
+                machines before it decide the juice quality; the filling and
+                cooling machines after it decide shelf life. As a{" "}
+                <strong className="text-gray-800">
+                  fruit juice plant manufacturer in Delhi
+                </strong>
+                , V-Pack Machine builds both parts of the line in-house.
+              </p>
+            </div>
+
+            {/* Fruit Juice Plant Process */}
+            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
+                Fruit Juice Plant Process
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-gray-700 pl-1">
+                {processSteps.map(([step, detail]) => (
+                  <li key={step}>
+                    <strong className="text-gray-800">{step}</strong>
+                    {detail && <> — {detail}</>}
+                  </li>
+                ))}
+              </ol>
+              <p className="text-gray-600">
+                Juice is more sensitive than water or soda. It contains sugar
+                and pulp, so microbes grow quickly if any step is skipped, and
+                too much heat changes its taste and colour. The key is balance:
+                enough pasteurization to make juice safe, followed by fast
+                cooling to keep its fresh flavour.
+              </p>
+              <p className="text-gray-600">
+                V-Pack Machine&apos;s 14 years of experience in beverage
+                machinery go into getting this balance right on every juice
+                line.
+              </p>
+            </div>
+
+            {/* Machines in a V-Pack Juice Plant */}
+            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
+                Machines in a V-Pack Juice Plant
+              </h2>
+              <DataTable
+                headers={["Machine", "Role"]}
+                rows={machines.map(({ name, href, role }) => [
+                  href ? (
+                    <Link href={href} className="text-blue-600 font-semibold">
+                      {name}
+                    </Link>
+                  ) : (
+                    name
+                  ),
+                  role,
+                ])}
+              />
+            </div>
+
+            {/* Juices and Drinks You Can Make */}
+            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
+                Juices and Drinks You Can Make
+              </h2>
+              <DataTable headers={["Category", "Examples"]} rows={juiceTypes} />
+              <p className="text-gray-600">
+                Pulpy juices like mango and guava need a pulper and homogenizer
+                so the drink stays smooth and does not separate on the shelf.
+                Clear juices like apple and grape need good filtration instead.
+                Tell V-Pack Machine which fruits you plan to process, and the
+                line will be configured for them.
+              </p>
+            </div>
+
+            {/* How to Start a Fruit Juice Plant */}
+            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
+                How to Start a Fruit Juice Plant: Step by Step
+              </h2>
+              <p className="text-gray-600">
+                Starting a juice business takes planning beyond buying machines.
+                Working with an experienced{" "}
+                <strong className="text-gray-800">
+                  fruit juice plant manufacturer in Delhi
+                </strong>{" "}
+                like V-Pack Machine keeps each step on track.
+              </p>
+              <ol className="list-decimal list-inside space-y-2 text-gray-700 pl-1">
+                {startSteps.map(([step, detail]) => (
+                  <li key={step}>
+                    <strong className="text-gray-800">{step}</strong> —{" "}
+                    {detail}
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            {/* Who Uses V-Pack Juice Plants */}
+            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
+                Who Uses V-Pack Juice Plants
+              </h2>
+              <p className="text-gray-600">
+                Buyers who choose V-Pack Machine as their{" "}
+                <strong className="text-gray-800">
+                  fruit juice plant manufacturer in Delhi
+                </strong>{" "}
+                include beverage startups, established juice brands, dairy and
+                food processors, contract manufacturers and export units.
+                V-Pack&apos;s clients include dairy and beverage companies such
+                as Paras Dairy and DS Group.
+              </p>
+            </div>
+
+            {/* About V-Pack Machine */}
+            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
+                About V-Pack Machine — 14 Years of Experience
+              </h2>
+              <p className="text-gray-600">
+                V-Pack Machine Pvt. Ltd. is a{" "}
+                <strong className="text-gray-800">
+                  fruit juice plant manufacturer in Delhi
+                </strong>{" "}
+                with 14 years of experience in juice, beverage and water
+                machinery. Every pulper, tank, homogenizer,
+                pasteurizer and RFC machine is built at the company&apos;s
+                factory in Pooth Khurd, New Delhi, in SS 304 food-grade steel.
+              </p>
+              <p className="text-gray-600">
+                With more than 3,000 installations across India and abroad,
+                V-Pack supports juice businesses from the first trial batch to
+                full production.
+              </p>
+            </div>
+
+            {/* CTA */}
+            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
+                Start Your Fruit Juice Plant with V-Pack Machine
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-[#0B2545] text-white rounded-md font-semibold shadow hover:bg-[#13315c] transition-colors"
+                >
+                  Get a Quote <span>→</span>
+                </Link>
+                <button
+                  onClick={handleCall}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-white border-2 border-orange-400 text-gray-800 rounded-md font-semibold shadow hover:bg-orange-50 transition-colors cursor-pointer"
+                >
+                  Call Now <span className="text-gray-600">→</span>
+                </button>
               </div>
             </div>
-
-            {/* Performance Highlights */}
-            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
-              <p className="font-bold text-gray-800">Performance Highlights:</p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700 pl-1">
-                <li>Integrated rinsing, filling, and capping in one unit</li>
-                <li>High throughput with production capacity up to 300 BPM</li>
-                <li>Compatible with bottles from 180 ML to 2 Liters</li>
-                <li>
-                  Food-grade stainless steel construction for hygiene and
-                  durability
-                </li>
-                <li>Suitable for both clear and viscous juices</li>
-                <li>Low maintenance and energy-efficient operation</li>
-              </ul>
-            </div>
-
-            {/* Suitable for All Types of Juice Businesses */}
-            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
-                Suitable for All Types of Juice Businesses
-              </h2>
-              <p className="text-gray-600">
-                Vpack Machine fruit juice plants are ideal for:
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-700 pl-1">
-                <li>Commercial fruit juice manufacturers</li>
-                <li>Beverage startups and entrepreneurs</li>
-                <li>Dairy and food processing companies</li>
-                <li>Export-oriented juice production units</li>
-                <li>Institutional and contract manufacturing setups</li>
-              </ul>
-            </div>
-
-            {/* Advanced Technology & Hygienic Design */}
-            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
-                Advanced Technology & Hygienic Design
-              </h2>
-              <p className="text-gray-600">
-                At <strong className="text-gray-800">Vpack Machine</strong>, we
-                understand the importance of hygiene and food safety in juice
-                manufacturing. Our fruit juice plants are built with
-                GMP-compliant designs and food-grade materials. Automated
-                controls reduce human contact, ensuring safer production and
-                maintaining the natural flavor and nutritional value of the
-                juice.
-              </p>
-              <p className="text-gray-600">
-                Our machines are energy-efficient, easy to operate, and require
-                minimal maintenance, making them a cost-effective choice for
-                juice manufacturers.
-              </p>
-            </div>
-
-            {/* Why Choose Vpack Machine as Your Fruit Juice Plant Manufacturer? */}
-            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
-                Why Choose Vpack Machine as Your Fruit Juice Plant Manufacturer?
-              </h2>
-              <p className="text-gray-600">
-                There are many reasons why clients across India and overseas
-                trust <strong className="text-gray-800">Vpack Machine</strong>:
-              </p>
-
-              <ul className="list-disc list-inside space-y-2 text-gray-700 pl-1">
-                <li>
-                  Proven expertise in beverage and liquid processing machinery
-                </li>
-                <li>
-                  Custom-built fruit juice plants for small, medium, and
-                  large-scale production
-                </li>
-                <li>Robust construction for long-term performance</li>
-                <li>Easy integration with existing production lines</li>
-                <li>Competitive pricing without compromising on quality</li>
-                <li>Excellent after-sales support and technical assistance</li>
-              </ul>
-
-              <p className="text-gray-600 pt-2">
-                Our goal is not just to sell machines but to help you build a
-                successful and sustainable fruit juice business.
-              </p>
-            </div>
-
-            {/* Trusted Fruit Juice Plant Manufacturer for Quality & Performance */}
-            <div className="space-y-4 pt-4 text-[16px] lg:text-[18px]">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2545]">
-                Trusted Fruit Juice Plant Manufacturer for Quality & Performance
-              </h2>
-              <p className="text-gray-600">
-                As a reliable Fruit Juice Plant Manufacturer, Vpack Machine
-                focuses on innovation, quality, and customer satisfaction. Each
-                plant undergoes strict quality checks before delivery to ensure
-                flawless performance at the client’s site.
-              </p>
-              <p className="text-gray-600">
-                We also provide installation support, operator training, and
-                prompt service, ensuring smooth and uninterrupted production.
-              </p>
-              <p className="text-gray-600 font-medium">
-                If you are looking for a high-quality, efficient, and affordable{" "}
-                <strong className="text-gray-800">
-                  Fruit Juice Plant Manufacturer
-                </strong>
-                , <strong className="text-gray-800">Vpack Machine</strong> is
-                your ideal partner.
-              </p>
-            </div>
-
-            {/* Contact line */}
-            <p className="text-gray-700 pt-4 text-[16px] lg:text-[18px]">
-              <strong className="text-gray-800">
-                Contact Vpack Machine today
-              </strong>{" "}
-              to get expert guidance, customized plant solutions, and the best
-              pricing for your fruit juice manufacturing project
-            </p>
 
             {/* FAQs Section */}
             <div className="space-y-6 pt-6 border-t border-gray-200 text-[16px] lg:text-[18px]">
@@ -392,80 +441,14 @@ export default function FruitJuiceRFCPage() {
               </h2>
 
               <div className="space-y-6">
-                <div>
-                  <h3 className="font-bold text-gray-800 text-lg sm:text-xl">
-                    1. What is a fruit juice plant and how does it work?
-                  </h3>
-                  <p className="text-gray-600 mt-1">
-                    A fruit juice plant is a complete processing system used to
-                    convert fresh fruits into ready-to-pack juice. It includes
-                    fruit washing, crushing or pulping, juice extraction,
-                    filtration, pasteurization, storage, and filling.{" "}
-                    <strong className="text-gray-800">Vpack Machine</strong>{" "}
-                    designs automated fruit juice plants that ensure high
-                    hygiene, efficiency, and consistent juice quality.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-bold text-gray-800 text-lg sm:text-xl">
-                    2. How do I choose the right production capacity for a fruit
-                    juice plant?
-                  </h3>
-                  <p className="text-gray-600 mt-1">
-                    The right capacity depends on your business size, market
-                    demand, and future growth plans.{" "}
-                    <strong className="text-gray-800">Vpack Machine</strong>{" "}
-                    offers fruit juice plants in small, medium, and large
-                    capacities, allowing manufacturers to scale production
-                    easily as demand increases.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-bold text-gray-800 text-lg sm:text-xl">
-                    3. What is the cost of a fruit juice plant?
-                  </h3>
-                  <p className="text-gray-600 mt-1">
-                    The cost of a fruit juice plant varies based on production
-                    capacity, level of automation, and additional equipment
-                    required.{" "}
-                    <strong className="text-gray-800">Vpack Machine</strong>{" "}
-                    provides cost-effective and customized fruit juice plant
-                    solutions. For accurate pricing, it is best to request a
-                    detailed quotation.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-bold text-gray-800 text-lg sm:text-xl">
-                    4. What types of fruits can be processed in a fruit juice
-                    plant?
-                  </h3>
-                  <p className="text-gray-600 mt-1">
-                    A modern fruit juice plant can process a wide variety of
-                    fruits such as mango, orange, apple, pineapple, pomegranate,
-                    grapes, and mixed fruits.{" "}
-                    <strong className="text-gray-800">Vpack Machine</strong>{" "}
-                    designs versatile fruit juice plants suitable for multiple
-                    fruit types without compromising juice quality.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-bold text-gray-800 text-lg sm:text-xl">
-                    5. Why should I choose Vpack Machine as my fruit juice plant
-                    manufacturer?
-                  </h3>
-                  <p className="text-gray-600 mt-1">
-                    <strong className="text-gray-800">Vpack Machine</strong> is
-                    a trusted fruit juice plant manufacturer known for quality
-                    engineering, hygienic design, and reliable performance. The
-                    company offers customized solutions, competitive pricing,
-                    installation support, and strong after-sales service, making
-                    it a preferred choice for juice manufacturers.
-                  </p>
-                </div>
+                {faqs.map(({ question, answer }, i) => (
+                  <div key={question}>
+                    <h3 className="font-bold text-gray-800 text-lg sm:text-xl">
+                      {i + 1}. {question}
+                    </h3>
+                    <p className="text-gray-600 mt-1">{answer}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
