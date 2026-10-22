@@ -4,19 +4,265 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { faqs } from "./faqs";
+
+const specifications = [
+  ["Capacity", "30 bottles per minute (~1,800/hour)"],
+  ["Machine type", "Automatic"],
+  ["Application", "PET bottle filling"],
+  ["Material", "SS 304 stainless steel"],
+  ["Power", "About 5 kW"],
+  ["Supply", "440 V, 50 Hz, three phase"],
+  ["Guarding", "Transparent and SS cover"],
+  ["Bottle size range", "200 ml – 2 L"],
+  ["Heads", "6 rinsing, 6 filling, 3 capping"],
+  ["Filling accuracy", "±1%"],
+  ["Air pressure", "6–8 bar"],
+  ["Liquids", "Non-carbonated (water, juice)"],
+];
+
+const machines = [
+  {
+    name: "Industrial RO Plant",
+    href: "/industrial-ro-plant",
+    role: "Purifies raw water",
+    range: "500–10,000 LPH",
+  },
+  {
+    name: "SS Water Storage Tank",
+    href: "/ss-water-storage-tank",
+    role: "Holds treated water",
+    range: "SS 304, custom capacity",
+  },
+  {
+    name: "Bottle RFC Machine",
+    role: "Rinses, fills, caps",
+    range: "24, 30, 60, 90 BPM",
+  },
+  {
+    name: "Capper Machine",
+    href: "/capper-machine-vpcl-40m",
+    role: "Seals PVC/metal caps, up to 1,200 bottles/hour",
+    range: "VPCL-40M",
+  },
+  {
+    name: "BOPP / Sticker Labeler",
+    href: "/bopp-labelor",
+    role: "Brand labels",
+    range: "Automatic",
+  },
+  {
+    name: "Shrink Wrapping Machine",
+    href: "/semi-automatic-shrink-wrapping-machine",
+    role: "Bundles for dispatch",
+    range: "Semi-automatic",
+  },
+  {
+    name: "PET Blow Moulding Machine",
+    href: "/pet-blow-moulding-machine",
+    role: "Makes your own bottles",
+    range: "2-cavity, up to 1,200 bottles/hour",
+  },
+];
+
+const processSteps = [
+  [
+    "Raw water storage",
+    "borewell or municipal water is collected in a tank.",
+  ],
+  [
+    "Purification",
+    "the Industrial RO plant (500–10,000 LPH, 55–60% recovery) removes dissolved salts and impurities.",
+  ],
+  [
+    "Treated water storage",
+    "clean water is held in an SS 304 tank, ready for filling.",
+  ],
+  ["Rinsing", "empty PET bottles are rinsed on 6 rinsing heads."],
+  ["Filling", "6 filling heads fill each bottle with ±1% accuracy."],
+  ["Capping", "3 capping heads seal each bottle."],
+  ["Labeling", "BOPP or sticker labels are applied."],
+  ["Shrink packing", "bottles are bundled and sent for dispatch."],
+];
+
+const capacityGuide = [
+  ["Up to ~11,000 bottles", "up to 23 BPM", "24 BPM"],
+  ["Up to ~14,000 bottles", "up to 29 BPM", "30 BPM"],
+  ["Up to ~28,000 bottles", "up to 58 BPM", "60 BPM"],
+  ["Up to ~43,000 bottles", "up to 89 BPM", "90 BPM"],
+];
+
+const benefits = [
+  [
+    "Three jobs, one machine",
+    "the RFC machine rinses, fills and caps in one pass, saving floor space, power and manpower.",
+  ],
+  [
+    "Accurate fills",
+    "±1% filling accuracy means less water wasted and fewer under-filled bottles.",
+  ],
+  [
+    "Small team",
+    "a 30 BPM machine needs only one skilled operator and one helper.",
+  ],
+  [
+    "Hygienic design",
+    "SS 304/316 contact parts in 3 mm thick steel, with no rubber gaskets in the filling crevices where bacteria can grow.",
+  ],
+  [
+    "Flexible pack sizes",
+    "one machine fills bottles from 200 ml to 2 litres with simple changeover parts.",
+  ],
+  [
+    "Grows with your business",
+    "start at 24 or 30 BPM and move to 60 or 90 BPM as demand rises.",
+  ],
+  [
+    "Lower bottle cost",
+    "add a PET blow moulding machine to make up to 1,200 bottles per hour in-house.",
+  ],
+  [
+    "Fast start",
+    "installation in 15–45 days, with operator training included.",
+  ],
+  [
+    "Local support",
+    "a factory in New Delhi means quick service visits and spare parts across Delhi NCR.",
+  ],
+  [
+    "Long life",
+    "with regular maintenance, the machinery lasts 10–15 years or more.",
+  ],
+];
+
+const chooseChecklist = [
+  [
+    "Manufacturer or trader?",
+    "Visit the factory. Vpack builds machines at its own unit in Pooth Khurd, New Delhi.",
+  ],
+  [
+    "Material grade.",
+    "All product-contact parts should be SS 304 or better.",
+  ],
+  [
+    "Full line from one supplier.",
+    "Mixed vendors cause speed mismatches between RO, filler and labeler.",
+  ],
+  [
+    "Installation and training on site.",
+    "Vpack installs in 15–45 days and trains your operators.",
+  ],
+  [
+    "Spare parts and service nearby.",
+    "Ask how fast a technician reaches your plant.",
+  ],
+  [
+    "Running plants to see.",
+    "Ask for client references; Vpack has 3,000+ installations.",
+  ],
+];
+
+const audience = [
+  "New entrepreneurs starting a packaged drinking water brand",
+  "Existing water brands moving from manual or semi-automatic filling to automatic lines",
+  "Hotels, resorts and institutions that want their own branded water",
+  "Beverage companies adding a water line next to soda or juice",
+  "Exporters supplying bottling lines to markets such as Dubai, Kenya, Uganda and Sri Lanka",
+];
+
+const whyChoose = [
+  [
+    "14 years of experience",
+    "a water bottling plant manufacturer with 3,000+ installations across India and abroad.",
+  ],
+  [
+    "Manufacturer, not trader",
+    "as a water bottling plant manufacturer, we build every machine at our own factory in Pooth Khurd, New Delhi.",
+  ],
+  ["Expert-led team", "led by industry expert Suman Verma."],
+  [
+    "Trusted by brands",
+    "DS Group, Paras Dairy and Old Monk; exports to Dubai, Kenya, Uganda and Sri Lanka.",
+  ],
+  [
+    "Tested before dispatch",
+    "factory trial run, installation in 15–45 days and operator training.",
+  ],
+  [
+    "Local after-sales support",
+    "AMC, genuine spare parts and quick service across Delhi NCR from a water bottling plant manufacturer close to you.",
+  ],
+];
+
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 },
+};
+
+function DataTable({ headers, rows }) {
+  return (
+    <div className="overflow-x-auto border border-gray-200 rounded-lg">
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr className="bg-gray-50 border-b border-gray-200">
+            {headers.map((header) => (
+              <th
+                key={header}
+                className="p-3 text-[16px] lg:text-[18px] font-bold text-gray-700"
+              >
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200 text-[16px] lg:text-[18px]">
+          {rows.map((row, r) => (
+            <tr key={r}>
+              {row.map((cell, i) => (
+                <td
+                  key={i}
+                  className={`p-3 ${i === 0 ? "text-gray-600" : "text-gray-800"}`}
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function BoldList({ items, separator = " — " }) {
+  return (
+    <ul className="list-disc pl-6 space-y-2">
+      {items.map(([title, detail]) => (
+        <li key={title}>
+          <span className="font-bold text-gray-900">{title}</span>
+          {separator}
+          {detail}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function WaterBottlingPlantPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans">
       {/* Top Hero Banner */}
-      <div className="w-full bg-slate-200 flex items-center justify-center px-4 min-h-[80px] md:min-h-[110px]">
+      <div className="w-full bg-slate-200 flex items-center justify-center px-4 py-4 min-h-[80px] md:min-h-[110px]">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-2xl md:text-4xl font-bold text-slate-900 text-center"
         >
-          Water Bottling <span className="text-blue-500">Plant</span>
+          Water Bottling Plant Manufacturer In Delhi -{" "}
+          <span className="text-blue-500">Vpack Machine</span>
         </motion.h1>
       </div>
 
@@ -33,7 +279,7 @@ export default function WaterBottlingPlantPage() {
             <div className="relative w-full h-[320px] mb-4">
               <Image
                 src="/images/products/water.png"
-                alt="Water Bottling Plant"
+                alt="30 BPM water bottling plant RFC machine by Vpack Machine, Delhi"
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                 className="object-contain rounded-md"
@@ -50,13 +296,12 @@ export default function WaterBottlingPlantPage() {
             </div>
 
             <p className="text-[16px] lg:text-[18px] text-gray-600 mb-4">
-              The complete{" "}
+              The 30 BPM{" "}
               <span className="font-bold text-gray-800">
                 Water Bottling Machine
               </span>{" "}
-              is enclosed in transparent plastic and stainless steel guard cover
-              without any rubber gaskets. This ensures there is no bacterial
-              growth in the crevice.
+              rinses, fills and caps in one pass, with a transparent and SS
+              guard cover and no rubber gaskets in the filling crevices.
             </p>
 
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
@@ -78,252 +323,184 @@ export default function WaterBottlingPlantPage() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="lg:col-span-7"
           >
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
-              Water Bottling Plant Manufacturer
-            </h2>
-
-            <div className="overflow-x-auto border border-gray-200 rounded-lg">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-gray-50 border-b border-gray-200">
-                    <th className="p-3 text-[16px] lg:text-[18px] font-bold text-gray-700 w-1/3">
-                      Specification
-                    </th>
-                    <th className="p-3 text-[16px] lg:text-[18px] font-bold text-gray-700 w-2/3">
-                      Details
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 text-[16px] lg:text-[18px]">
-                  <tr>
-                    <td className="p-3 text-gray-600">Capacity</td>
-                    <td className="p-3 text-gray-800">30 Bottles Per Minute</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-600">Power Consumption</td>
-                    <td className="p-3 text-gray-800">7 kW</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-600">Usage/Application</td>
-                    <td className="p-3 text-gray-800">PET Bottle Filling</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-600">Machine Type</td>
-                    <td className="p-3 text-gray-800">Automatic</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-600">Material</td>
-                    <td className="p-3 text-gray-800">Stainless Steel</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-600">Driven Type</td>
-                    <td className="p-3 text-gray-800">Electric</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-600">Voltage</td>
-                    <td className="p-3 text-gray-800">240 V</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-600">Frequency</td>
-                    <td className="p-3 text-gray-800">50 Hz</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-600">Material Grade</td>
-                    <td className="p-3 text-gray-800">SS 304</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-600">Phase</td>
-                    <td className="p-3 text-gray-800">Single Phase</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="bg-blue-50 border-l-4 border-blue-600 rounded-sm p-4 sm:p-5 mb-8 text-[16px] lg:text-[18px] text-gray-700">
+              <p>
+                <span className="font-bold text-gray-900">Quick Answer:</span>{" "}
+                Vpack Machine Pvt. Ltd. is a{" "}
+                <span className="font-bold text-gray-900">
+                  water bottling plant manufacturer in New Delhi
+                </span>{" "}
+                that builds complete lines — RO plant, storage tanks, bottle
+                rinsing-filling-capping (RFC) machine, labeling, shrink packing
+                and PET blow moulding — from 24 to 90 bottles per minute with SS
+                304 contact parts. Its standard 30 BPM machine has 6 rinsing, 6
+                filling and 3 capping heads, and plants are installed in 15–45
+                days, backed by 14 years of experience.
+              </p>
             </div>
+
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
+              Technical Specifications
+            </h2>
+            <DataTable
+              headers={["Specification", "Value"]}
+              rows={specifications}
+            />
           </motion.div>
         </div>
 
         {/* Detailed Description Content Section */}
-        <div className="mt-12 space-y-6 text-[16px] lg:text-[18px] text-gray-700 leading-relaxed">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+        <div className="mt-12 space-y-10 text-[16px] lg:text-[18px] text-gray-700 leading-relaxed">
+          <motion.div {...fadeUp}>
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-              Water Bottling Plant Manufacturer in Delhi
+              What Is a Water Bottling Plant?
             </h2>
             <p>
-              Starting or upgrading a bottled water business begins with
-              choosing the right{" "}
-              <Link href="/contact" className="text-blue-600 ">
-                Water Bottling Plant Manufacturer in Delhi
-              </Link>
-              . Vpack Machine designs, manufactures, and installs complete water
-              bottling plants — covering purification, filling, capping,
-              labeling, and packaging — built to meet BIS hygiene and safety
-              standards.
+              A water bottling plant is a production line that turns raw water
+              into sealed, labeled bottles ready for sale. Water is first
+              purified in an RO plant, then the bottles are rinsed, filled and
+              capped in one machine, labeled and packed for dispatch. A
+              well-designed line needs only a small team because most steps are
+              automatic.
             </p>
             <p className="mt-3">
-              Every plant we deliver is powered by our in-house range of{" "}
-              <span className="font-bold">water bottling machines</span>,
-              engineered for accuracy, speed, and minimal downtime. Whether
-              you&apos;re setting up a new unit in Delhi NCR or expanding an
-              existing line, Vpack Machine offers end-to-end support — from
-              machine selection to after-sales service — so your production
-              stays consistent and profitable.
+              Water bottling plants are used to make packaged drinking water,
+              mineral water and soda water. The bottling machines are largely
+              the same; what changes is the water treatment before filling.
+              Vpack Machine builds the full line at its factory in Pooth Khurd,
+              New Delhi.
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <motion.div {...fadeUp}>
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-              Why Vpack Machine is a Trusted Water Bottling Plant Manufacturer
+              What a Water Bottling Plant Manufacturer Supplies
             </h2>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>
-                Complete turnkey water bottling plant setup — no need to source
-                machines from multiple vendors
-              </li>
-              <li>
-                Precision-built water bottling machines with low maintenance and
-                long service life
-              </li>
-              <li>
-                BIS and ISO-aligned manufacturing for safe, compliant production
-              </li>
-              <li>
-                Flexible capacity options to match your investment and business
-                scale
-              </li>
-              <li>
-                On-ground installation, training, and AMC support across Delhi
-              </li>
-              <li>Transparent, affordable pricing with no hidden costs</li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-              Types of Water Bottling Plants We Manufacture
-            </h2>
-            <p className="mb-3">
-              As a full-spectrum{" "}
-              <Link href="/contact" className="text-blue-600 ">
-                Water Bottling Plant Manufacturer
-              </Link>
-              , Vpack Machine caters to different categories of bottled water
-              businesses in Delhi:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>
-                <span className="font-bold">
-                  Packaged Drinking Water Bottling Plant
-                </span>{" "}
-                – For purified, filtered drinking water in PET bottles and jars.
-              </li>
-              <li>
-                <span className="font-bold">Mineral Water Bottling Plant</span>{" "}
-                – RO-based filtration systems that retain essential minerals
-                while removing impurities.
-              </li>
-              <li>
-                <span className="font-bold">
-                  Soda & Carbonated Water Bottling Plant
-                </span>{" "}
-                – Equipped with carbonators for sparkling and flavored water
-                production.
-              </li>
-            </ul>
-            <p className="mt-3">
-              Each plant type uses a tailored combination of our water bottling
-              machines, selected based on your raw water source, target bottle
-              size, and daily production goals.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-              Our Core Water Bottling Machines
-            </h2>
-            <p className="mb-3">
-              A complete water bottling plant runs on the following machines,
-              all manufactured and supplied by{" "}
-              <span className="font-bold">Vpack Machine</span>:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>
-                <span className="font-bold">Bottle RFC Machine</span> – Combines
-                rinsing, filling, and capping in one automated unit, available
-                in capacities from 24 to 90 BPM.
-              </li>
-              <li>
-                <span className="font-bold">Industrial RO Plant</span> – Treats
-                raw water to remove bacteria, dissolved solids, and contaminants
-                before filling.
-              </li>
-              <li>
-                <span className="font-bold">SS Water Storage Tank</span> –
-                Stainless steel tanks that keep purified water hygienic and
-                ready for filling.
-              </li>
-              <li>
-                <span className="font-bold">Capper Machine</span> – Ensures
-                tight, leak-proof sealing on every bottle at high speed.
-              </li>
-              <li>
-                <span className="font-bold">
-                  BOPP & Sticker Labelor Machines
-                </span>{" "}
-                – Apply professional, durable labels for retail-ready bottles.
-              </li>
-              <li>
-                <span className="font-bold">Shrink Wrapping Machine</span> –
-                Bundles bottles into shrink-packed units for safe transport and
-                storage.
-              </li>
-              <li>
-                <span className="font-bold">Pet Blow Moulding Machine</span> –
-                Produces your own PET bottles in-house, reducing dependency on
-                third-party suppliers.
-              </li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-              Why Delhi-Based Businesses Choose Vpack Machine
-            </h2>
+            <div className="mb-4">
+              <DataTable
+                headers={["Machine", "Role", "Vpack range"]}
+                rows={machines.map(({ name, href, role, range }) => [
+                  href ? (
+                    <Link href={href} className="text-blue-600 font-semibold">
+                      {name}
+                    </Link>
+                  ) : (
+                    name
+                  ),
+                  role,
+                  range,
+                ])}
+              />
+            </div>
             <p>
-              Delhi NCR’s growing demand for packaged and mineral water makes it
-              essential to work with a local{" "}
-              <span className="font-bold">
-                water bottling plant manufacturer
-              </span>{" "}
-              who understands regional compliance needs and can respond quickly.
-              With our manufacturing base in Delhi, customers benefit from
-              shorter delivery timelines, faster on-site servicing, easy access
-              to spare parts, and personalized consultation — without the wait
-              times associated with manufacturers based outside the region.
+              A complete water bottling line works like a chain. Raw water is
+              purified in the RO plant, stored in a steel tank, then pumped to
+              the RFC machine, where empty bottles are rinsed, filled and capped
+              in one pass. Bottles then move on a conveyor to the labeler and
+              finally to the shrink wrapper, ready for dispatch.
             </p>
+            <p className="mt-3">
+              With 14 years of experience building these lines, Vpack Machine
+              designs the layout so bottles flow in a straight, easy-to-clean
+              path with minimal manual handling.
+            </p>
+          </motion.div>
+
+          <motion.div {...fadeUp}>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+              How a Water Bottling Plant Works: Step by Step
+            </h2>
+            <ol className="list-decimal pl-6 space-y-2">
+              {processSteps.map(([step, detail]) => (
+                <li key={step}>
+                  <span className="font-bold text-gray-900">{step}</span> —{" "}
+                  {detail}
+                </li>
+              ))}
+            </ol>
+            <p className="mt-3">
+              Steps 4 to 6 happen inside one Bottle RFC machine, which is why a
+              30 BPM line runs with just one skilled operator and one helper.
+            </p>
+          </motion.div>
+
+          <motion.div {...fadeUp}>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+              Which Capacity Do You Need?
+            </h2>
+            <p className="mb-4">
+              Divide your daily bottle target by working minutes. One 8-hour
+              shift = 480 minutes.
+            </p>
+            <div className="mb-4">
+              <DataTable
+                headers={["Daily target (one shift)", "Needed speed", "Choose"]}
+                rows={capacityGuide}
+              />
+            </div>
+            <p>
+              Plan 15–20% extra for changeovers and breaks. Example: 10,000
+              bottles a day needs about 21 BPM, so a 24 or 30 BPM plant fits
+              with room to grow.
+            </p>
+          </motion.div>
+
+          <motion.div {...fadeUp}>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+              Benefits of a Vpack Water Bottling Plant
+            </h2>
+            <BoldList items={benefits} />
+            <p className="mt-3">
+              For a new water brand, these benefits add up to lower running
+              costs per bottle and fewer production stops — the two things that
+              decide profit in the packaged water business.
+            </p>
+          </motion.div>
+
+          <motion.div {...fadeUp}>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+              How to Choose a Water Bottling Plant Manufacturer
+            </h2>
+            <BoldList items={chooseChecklist} separator=" " />
+          </motion.div>
+
+          <motion.div {...fadeUp}>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+              Who Is a Water Bottling Plant For?
+            </h2>
+            <ul className="list-disc pl-6 space-y-2">
+              {audience.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div {...fadeUp}>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+              Why Choose Vpack Machine as Your Water Bottling Plant Manufacturer
+              in Delhi
+            </h2>
+            <BoldList items={whyChoose} />
+          </motion.div>
+
+          <motion.div {...fadeUp}>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+              Set Up Your Water Bottling Plant with Vpack Machine
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow hover:bg-blue-700 transition-colors"
+              >
+                Get a Quote <span className="ml-2">→</span>
+              </Link>
+              <a
+                href="tel:+919135636541"
+                className="inline-flex items-center justify-center bg-white border border-orange-500 text-orange-600 font-bold py-3 px-6 rounded-lg shadow hover:bg-orange-50 transition-colors"
+              >
+                Call Now <span className="ml-2">→</span>
+              </a>
+            </div>
           </motion.div>
         </div>
 
@@ -334,157 +511,14 @@ export default function WaterBottlingPlantPage() {
           </h2>
 
           <div className="space-y-6 text-[16px] lg:text-[18px]">
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                1. Who is the best Water Bottling Plant Manufacturer in Delhi?
-              </h3>
-              <p className="text-gray-700">
-                Vpack Machine is a trusted Water Bottling Plant Manufacturer in
-                Delhi, offering BIS-compliant machinery, complete turnkey
-                installation, and reliable after-sales support for businesses of
-                all sizes.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                2. What is a water bottling plant?
-              </h3>
-              <p className="text-gray-700">
-                A water bottling plant is a complete production setup that
-                purifies, fills, caps, labels, and packages water into bottles
-                or jars, typically combining an RO plant, water bottling
-                machine, labeling unit, and packaging system.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                3. What is the difference between a water bottling plant and a
-                water bottling machine?
-              </h3>
-              <p className="text-gray-700">
-                A water bottling machine refers to the specific unit that
-                rinses, fills, and caps bottles, while a water bottling plant is
-                the entire production line — including filtration, storage, the
-                bottling machine, labeling, and packaging — needed to produce
-                finished bottled water.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                4. What is the cost of setting up a water bottling plant in
-                Delhi?
-              </h3>
-              <p className="text-gray-700">
-                Costs vary based on plant capacity, automation level, and
-                machine selection, ranging from a few lakhs for a small unit to
-                higher investments for fully automated, high-capacity setups.
-                Contact Vpack Machine for a customized quotation.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                5. What types of water bottling plants does Vpack Machine
-                manufacture?
-              </h3>
-              <p className="text-gray-700">
-                Vpack Machine manufactures Packaged Drinking Water Bottling
-                Plants, Mineral Water Bottling Plants, and Soda/Carbonated Water
-                Bottling Plants, each customized with the right water bottling
-                machine configuration.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                6. What machines are included in a complete water bottling
-                machine setup?
-              </h3>
-              <p className="text-gray-700">
-                A typical setup includes a Bottle RFC Machine
-                (rinser-filler-capper), Industrial RO Plant, SS Storage Tank,
-                Labeling Machine, and Shrink Wrapping Machine — all supplied and
-                installed by Vpack Machine.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                7. What capacity options are available for water bottling
-                machines?
-              </h3>
-              <p className="text-gray-700">
-                Vpack Machine’s water bottling machines are available in 24, 30,
-                60, and 90 BPM (bottles per minute) capacities, suitable for
-                both small-scale startups and large production units.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                8. Is BIS certification mandatory for a water bottling plant in
-                Delhi?
-              </h3>
-              <p className="text-gray-700">
-                Yes, BIS certification is legally required for manufacturing and
-                selling packaged drinking water in India, including Delhi. Vpack
-                Machine’s plants are designed to help you meet these compliance
-                standards.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                9. How much space is needed for a water bottling plant?
-              </h3>
-              <p className="text-gray-700">
-                A small to mid-sized water bottling plant typically needs
-                1,500–3,000 sq. ft. of covered space, depending on machine
-                capacity and storage requirements. Vpack Machine provides a
-                custom layout based on your site.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                10. How long does installation take?
-              </h3>
-              <p className="text-gray-700">
-                Installation of a water bottling plant by Vpack Machine
-                generally takes 15 to 45 days, depending on plant capacity and
-                site readiness.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                11. Do you provide after-sales service for water bottling
-                machines in Delhi?
-              </h3>
-              <p className="text-gray-700">
-                Yes, Vpack Machine offers nationwide AMC, genuine spare parts,
-                and technical support, with faster response times for Delhi NCR
-                customers due to our local manufacturing base.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900 mb-1">
-                12. How can I get a price quote for a water bottling plant?
-              </h3>
-              <p className="text-gray-700">
-                Share your required capacity, bottle sizes, and location with
-                Vpack Machine’s team to receive a customized quotation along
-                with plant layout and consultation support. Or visit our{" "}
-                <Link href="/contact" className="text-blue-600 ">
-                  contact page
-                </Link>{" "}
-                to request a quote.
-              </p>
-            </div>
+            {faqs.map(({ question, answer }, i) => (
+              <div key={question}>
+                <h3 className="font-bold text-gray-900 mb-1">
+                  {i + 1}. {question}
+                </h3>
+                <p className="text-gray-700">{answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
