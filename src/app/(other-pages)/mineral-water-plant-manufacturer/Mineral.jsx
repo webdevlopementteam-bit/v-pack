@@ -4,6 +4,223 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  BoldList,
+  DataTable,
+  FaqList,
+  QuickAnswer,
+} from "@/components/ContentBlocks";
+import { faqs } from "./faqs";
+
+const machineImages = [
+  {
+    src: "/images/products/p1.png",
+    title: "BOTTLE RFC MACHINE 30 BPM",
+    link: "/products",
+  },
+  {
+    src: "/images/products/boop.png",
+    title: "BOPP LABELOR",
+    link: "/bopp-labelor",
+  },
+  {
+    src: "/images/products/ro-plant.png",
+    title: "INDUSTRIAL RO PLANT",
+    link: "/industrial-ro-plant",
+  },
+  {
+    src: "/images/products/power-pack.png",
+    title: "SHRINK WRAPPING MACHINE",
+    link: "/semi-automatic-shrink-wrapping-machine",
+  },
+  {
+    src: "/images/products/ss-water.png",
+    title: "SS WATER STORAGE TANK",
+    link: "/ss-water-storage-tank",
+  },
+  {
+    src: "/images/products/sticker.png",
+    title: "STICKER LABELOR MACHINE",
+    link: "/sticker-labelor-machine",
+  },
+  {
+    src: "/images/products/capper.png",
+    title: "CAPPER MACHINE VPCL-40M",
+    link: "/capper-machine-vpcl-40m",
+  },
+];
+
+const specifications = [
+  ["Manufacturer", "Vpack Machine Pvt. Ltd"],
+  ["Capacity", "24, 30, 60, 90 BPM"],
+  ["Pack sizes", "200 ml – 20 L"],
+  ["Contact parts", "SS 304 food-grade"],
+  ["Installation", "15–45 days, with training"],
+  ["Space needed", "1,500–3,000 sq. ft. covered"],
+  ["Licence (2026)", "FSSAI licence + FSSAI testing scheme"],
+  ["Support", "Nationwide AMC and spare parts"],
+  [
+    "Water treatment",
+    "Industrial RO plant, 500–10,000 LPH, 55–60% recovery",
+  ],
+  ["Automation", "Semi-automatic or fully automatic"],
+  ["Optional", "PET blow moulding, up to 1,200 bottles/hour"],
+];
+
+const processSteps = [
+  [
+    "Raw water intake",
+    "borewell or municipal water into a raw water tank.",
+  ],
+  [
+    "Pre-treatment",
+    "sand filter and activated carbon filter remove mud, smell and chlorine.",
+  ],
+  ["Micron filtration", "removes fine particles before RO."],
+  [
+    "Reverse osmosis (RO)",
+    "removes dissolved salts and impurities.",
+  ],
+  ["Mineral dosing", "adds minerals back for taste."],
+  [
+    "Ozonation and UV",
+    "kill bacteria and keep water safe inside the bottle.",
+  ],
+  [
+    "Bottle making (optional)",
+    "PET blow moulding turns preforms into bottles.",
+  ],
+  [
+    "Rinsing, filling and capping",
+    "one Bottle RFC machine does all three.",
+  ],
+  ["Labeling and batch coding.", ""],
+  ["Shrink packing, lab testing and dispatch.", ""],
+];
+
+const machines = [
+  {
+    name: "Industrial RO Plant",
+    href: "/industrial-ro-plant",
+    role: "Removes dissolved salts, bacteria and impurities",
+  },
+  {
+    name: "SS 304 Water Storage Tank",
+    href: "/ss-water-storage-tank",
+    role: "Stores treated water hygienically",
+  },
+  {
+    name: "Bottle RFC Machine",
+    role: "Rinses, fills and caps at 24–90 BPM",
+  },
+  {
+    name: "Capper Machine (VPCL-40M)",
+    href: "/capper-machine-vpcl-40m",
+    role: "Seals PVC/metal caps, up to 1,200 bottles/hour",
+  },
+  {
+    name: "BOPP / Sticker Labeling Machine",
+    href: "/bopp-labelor",
+    role: "Wrap-around or front/back labels",
+  },
+  {
+    name: "Shrink Wrapping Machine",
+    href: "/semi-automatic-shrink-wrapping-machine",
+    role: "Bundles bottles for transport",
+  },
+  {
+    name: "PET Blow Moulding Machine (optional)",
+    href: "/pet-blow-moulding-machine",
+    role: "Makes up to 1,200 bottles/hour in-house",
+  },
+];
+
+const capacityGuide = [
+  ["24 BPM", "~1,440", "~11,500", "New startups, local supply"],
+  ["30 BPM", "~1,800", "~14,400", "Small brands, one district"],
+  ["60 BPM", "~3,600", "~28,800", "Regional brands"],
+  ["90 BPM", "~5,400", "~43,200", "Large producers"],
+];
+
+const licences = [
+  ["FSSAI licence", "apply on the FoSCoS portal."],
+  [
+    "FSSAI testing scheme",
+    "from 1 January 2026, water must be tested (microbiological, chemical, radiological) at FSSAI-notified NABL-accredited labs, with batch records kept for at least five years.",
+  ],
+  [
+    "State Pollution Control Board consent",
+    "to establish and operate.",
+    " ",
+  ],
+  ["Groundwater NOC", "if you draw borewell water.", " "],
+  [
+    "GST registration, Udyam (MSME) registration",
+    "and a trademark for your brand name.",
+    " ",
+  ],
+];
+
+const setupSteps = [
+  ["Consultation", "budget, target capacity and space."],
+  [
+    "Plant layout and machine list",
+    "RO, RFC, labeling and packing sized together.",
+  ],
+  ["Manufacturing and trial run", "at our Delhi factory.", " "],
+  ["Installation and commissioning", "in 15–45 days.", " "],
+  ["Operator training and handover.", ""],
+  ["AMC and spare parts", "after installation.", " "],
+];
+
+const whyChoose = [
+  [
+    "Manufacturer, not trader",
+    "machines built at our own factory in Pooth Khurd, New Delhi",
+  ],
+  [
+    "3,000+ installations across India;",
+    "exports to Dubai, Kenya, Uganda and Sri Lanka",
+    " ",
+  ],
+  [
+    "Trusted by brands",
+    "including DS Group, Paras Dairy and Old Monk",
+    " ",
+  ],
+  [
+    "One supplier for the whole line",
+    "RO to shrink packing, plus PET bottle making",
+  ],
+  [
+    "Fast service in Delhi NCR and nationwide AMC;",
+    "machine life of 10–15+ years with maintenance",
+    " ",
+  ],
+];
+
+const quickFacts = [
+  [
+    "Manufacturer:",
+    "Vpack Machine Pvt. Ltd., Pooth Khurd, New Delhi — 14 years of experience",
+  ],
+  ["Capacity:", "24, 30, 60 and 90 bottles per minute"],
+  ["Pack sizes:", "200 ml bottles to 20-litre jars"],
+  ["RO plant:", "500 – 10,000 LPH, 55–60% recovery"],
+  ["Material:", "SS 304 food-grade contact parts"],
+  ["Installation:", "15 – 45 days, with operator training"],
+  ["Space needed:", "1,500 – 3,000 sq. ft. covered"],
+  [
+    "Licence (2026):",
+    "FSSAI licence + FSSAI testing scheme; BIS no longer mandatory",
+  ],
+  [
+    "Contact:",
+    <a key="tel" href="tel:+919135636541" className="text-blue-600 font-bold">
+      +91 91356 36541
+    </a>,
+  ],
+];
 
 export default function MineralWaterManufacturerPage() {
   const slideLeft = {
@@ -33,10 +250,17 @@ export default function MineralWaterManufacturerPage() {
     },
   };
 
+  const reveal = {
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once: true },
+    variants: fadeIn,
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 text-[16px] lg:text-[18px] leading-relaxed">
-      {/* Top Hero Header as requested */}
-      <header className="relative w-full min-h-[120px] md:min-h-[140px] bg-slate-200 flex items-center justify-center px-4 shadow-sm overflow-hidden">
+      {/* Top Hero Header */}
+      <header className="relative w-full min-h-[120px] md:min-h-[140px] bg-slate-200 flex items-center justify-center px-4 py-4 shadow-sm overflow-hidden">
         <motion.div
           className="text-center"
           initial="hidden"
@@ -44,53 +268,35 @@ export default function MineralWaterManufacturerPage() {
           variants={fadeIn}
         >
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
-            <span className="text-slate-900">Mineral Water</span>{" "}
-            <span className="text-blue-500">Plant Manufacturer</span>
+            <span className="text-slate-900">
+              Mineral Water Plant Manufacturer In Delhi -
+            </span>{" "}
+            <span className="text-blue-500">Vpack Machine</span>
           </h1>
         </motion.div>
       </header>
 
       {/* Main Container */}
       <main className="max-w-7xl mx-auto px-4 py-8 md:py-12 space-y-12">
-        {/* Section: Machine Images Showcase (p1.png to p7.png) */}
+        {/* Quick Answer */}
+        <motion.div {...reveal}>
+          <QuickAnswer>
+            Vpack Machine Pvt. Ltd. is a{" "}
+            <span className="font-bold text-gray-900">
+              mineral water plant manufacturer
+            </span>{" "}
+            based in Pooth Khurd, New Delhi. It builds complete plants —
+            Industrial RO, storage tanks, bottle rinsing-filling-capping,
+            labeling and shrink packing — at 24, 30, 60 or 90 bottles per minute
+            for 200 ml bottles to 20-litre jars, installed in 15–45 days. With
+            14 years of experience, Vpack has 3,000+ installations across India
+            and exports to Dubai, Kenya, Uganda and Sri Lanka.
+          </QuickAnswer>
+        </motion.div>
+
+        {/* Section: Machine Images Showcase */}
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              src: "/images/products/p1.png",
-              title: "BOTTLE RFC MACHINE 30 BPM",
-              link: "/products",
-            },
-            {
-              src: "/images/products/boop.png",
-              title: "BOPP LABELOR",
-              link: "/bopp-labelor",
-            },
-            {
-              src: "/images/products/ro-plant.png",
-              title: "INDUSTRIAL RO PLANT",
-              link: "/industrial-ro-plant",
-            },
-            {
-              src: "/images/products/power-pack.png",
-              title: "SHRINK WRAPPING MACHINE",
-              link: "/semi-automatic-shrink-wrapping-machine",
-            },
-            {
-              src: "/images/products/ss-water.png",
-              title: "SS WATER STORAGE TANK",
-              link: "/ss-water-storage-tank",
-            },
-            {
-              src: "/images/products/sticker.png",
-              title: "STICKER LABELOR MACHINE",
-              link: "/sticker-labelor-machine",
-            },
-            {
-              src: "/images/products/capper.png",
-              title: "CAPPER MACHINE VPCL-40M",
-              link: "/capper-machine-vpcl-40m",
-            },
-          ].map((item, idx) => (
+          {machineImages.map((item, idx) => (
             <motion.div
               key={idx}
               initial="hidden"
@@ -104,7 +310,7 @@ export default function MineralWaterManufacturerPage() {
                   <div className="relative w-full h-68 rounded-lg overflow-hidden bg-gray-50 mb-4">
                     <Image
                       src={item.src}
-                      alt={item.title}
+                      alt={`${item.title.toLowerCase()} for mineral water plant`}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                       className="object-cover"
@@ -120,389 +326,293 @@ export default function MineralWaterManufacturerPage() {
           ))}
         </section>
 
-        {/* Section: Content Intro */}
-        <div className="grid grid-cols-1 gap-8 items-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={slideLeft}
-            className="space-y-4"
-          >
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900">
-              Mineral Water Plant Manufacturer in Delhi
-            </h2>
+        {/* Technical Specifications */}
+        <motion.section {...reveal} className="space-y-4">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+            Technical Specifications
+          </h2>
+          <DataTable
+            headers={["Specification", "Vpack mineral water plant"]}
+            rows={specifications}
+          />
+        </motion.section>
 
-            <p>
-              If you are planning to set up a water bottling business and
-              searching for a reliable{" "}
-              <Link href="/contact" className="text-blue-600 font-bold">
-                Mineral Water Plant Manufacturer in Delhi
-              </Link>
-              , Vpack Machine is your trusted partner. We design, manufacture,
-              and install complete mineral water plants that cover filtration,
-              filling, capping, labeling, and packaging — built to meet BIS
-              standards for safe and hygienic water production.
-            </p>
+        {/* What Is a Mineral Water Plant? */}
+        <motion.section {...reveal} className="space-y-4">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+            What Is a Mineral Water Plant?
+          </h2>
+          <p className="font-medium text-gray-900">
+            A mineral water plant is a complete production line that purifies
+            raw water and fills it into sealed, labeled bottles or jars ready
+            for sale.
+          </p>
+          <p>
+            Think of a mineral water plant as a small factory with one job:
+            turning ordinary raw water into clean, sealed bottles you can sell.
+            It works in two halves. The first half cleans the water — sand and
+            carbon filters, RO, mineral dosing and disinfection. The second half
+            bottles it — rinsing, filling, capping, labeling and packing.
+          </p>
+          <p>
+            Here&apos;s something many first-time buyers don&apos;t know: in
+            India, most so-called &quot;mineral water plants&quot; actually make
+            packaged drinking water — purified water from any safe source, with
+            minerals added back for taste. Natural mineral water is different;
+            it has to come from a protected underground source. As a{" "}
+            <span className="font-bold">mineral water plant manufacturer</span>,
+            Vpack builds lines for both. The bottling machines stay the same —
+            only the water treatment changes.
+          </p>
+        </motion.section>
 
-            <p>
-              As an experienced{" "}
-              <span className="font-bold">
-                mineral water bottling plant manufacturer
-              </span>
-              , we serve startups as well as established businesses across Delhi
-              NCR, offering turnkey solutions customized to your production
-              capacity, budget, and space. Every machine is engineered for
-              precision, low maintenance, and long-term reliability — so your
-              plant runs smoothly from day one.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Section: Why Choose Vpack Machine */}
+        {/* Why Buy from One Supplier */}
         <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={slideLeft}
+          {...reveal}
+          className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 space-y-4"
+        >
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+            Why Buy a Complete Mineral Water Plant from One Supplier?
+          </h2>
+          <p className="font-medium text-gray-900">
+            Buying the whole line from one supplier means every machine runs at
+            the same speed, and one team is responsible for installation,
+            training and service.
+          </p>
+          <p>
+            Let&apos;s be honest — starting a water brand isn&apos;t just about
+            buying machines. Your plant has to produce safe water every single
+            day, pass FSSAI testing and run smoothly with a small team.
+            That&apos;s why most buyers prefer one mineral water plant
+            manufacturer who designs, builds, installs and services the whole
+            line, instead of chasing three different vendors when something
+            goes wrong.
+          </p>
+          <p>
+            Vpack Machine has been building water and beverage machinery for 14
+            years at its factory in Pooth Khurd, New Delhi. In that time, our
+            team has seen almost every problem a plant can face — leaking caps,
+            uneven fills, labels slipping, TDS going up and down. Every machine
+            we build today is designed so you don&apos;t have to deal with those
+            problems from day one.
+          </p>
+        </motion.section>
+
+        {/* How Does It Work */}
+        <motion.section {...reveal} className="space-y-4">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+            How Does a Mineral Water Plant Work? (Step by Step)
+          </h2>
+          <p>
+            A mineral water plant works in 10 steps — from raw water intake to a
+            packed, tested bottle ready for dispatch:
+          </p>
+          <BoldList items={processSteps} ordered />
+        </motion.section>
+
+        {/* Machines Needed */}
+        <motion.section {...reveal} className="space-y-4">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+            Which Machines Are Needed for a Mineral Water Plant?
+          </h2>
+          <p>
+            A complete{" "}
+            <span className="font-bold">mineral water plant machine</span> setup
+            has six core machines — an RO plant, storage tank, RFC machine,
+            capper, labeler and shrink wrapper — plus an optional PET blow
+            moulding machine. Vpack Machine makes all of them:
+          </p>
+          <DataTable
+            headers={["Machine", "What it does"]}
+            rows={machines.map(({ name, href, role }) => [
+              href ? (
+                <Link href={href} className="text-blue-600 font-semibold">
+                  {name}
+                </Link>
+              ) : (
+                name
+              ),
+              role,
+            ])}
+          />
+          <p>
+            One thing people often miss: every mineral water plant machine in
+            the line has to work as a team. The RO plant should make a little
+            more water than the RFC machine can fill, the labeler has to keep up
+            with the filler, and the shrink wrapper has to pack bottles as fast
+            as they arrive. Buy from different vendors, and the slowest machine
+            decides the speed of your whole line. Vpack Machine matches every
+            machine to your chosen BPM, so nothing holds the line back.
+          </p>
+          <p>
+            Want the full technical details of the bottling machine? See our{" "}
+            <Link
+              href="/30-bpm-water-bottling-plant-complete-setup"
+              className="text-blue-600 font-bold"
+            >
+              30 BPM bottling machine specs
+            </Link>
+            .
+          </p>
+        </motion.section>
+
+        {/* Capacity */}
+        <motion.section {...reveal} className="space-y-4">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+            Which Mineral Water Plant Capacity Should You Choose?
+          </h2>
+          <p className="font-medium text-gray-900">
+            Choose capacity from your daily sales target. A 24 or 30 BPM plant
+            suits most new brands; 60 or 90 BPM suits regional and large
+            producers.
+          </p>
+          <DataTable
+            headers={[
+              "Capacity",
+              "Bottles per hour (approx.)",
+              "Bottles per 8-hour shift",
+              "Best for",
+            ]}
+            rows={capacityGuide}
+          />
+          <p>
+            Our advice? Most new brands start with a 24 or 30 BPM plant on one
+            shift. When orders grow, they add a second shift first, and only
+            then move up to a 60 BPM line. If you plan your building and
+            electrical load for the next size from day one, that upgrade later
+            is quick and affordable.
+          </p>
+        </motion.section>
+
+        {/* Licences */}
+        <motion.section
+          {...reveal}
+          className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 space-y-4"
+        >
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+            What Licences Do You Need for a Mineral Water Plant in 2026?
+          </h2>
+          <p>
+            Good news if you&apos;re starting now: the rules have become
+            simpler. BIS certification is no longer mandatory for packaged
+            drinking water and natural mineral water. Here&apos;s what you need
+            instead:
+          </p>
+          <BoldList items={licences} />
+          <p>
+            Rules do change from time to time, so always double-check with your
+            consultant before you apply — a good mineral water plant
+            manufacturer will happily guide you through the process. Vpack
+            plants use SS 304 contact parts and a stainless steel RO plant,
+            which helps your water pass these tests consistently.
+          </p>
+        </motion.section>
+
+        {/* Profitability */}
+        <motion.section {...reveal} className="space-y-4">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+            Is a Mineral Water Plant Profitable?
+          </h2>
+          <p>
+            Yes — as long as you have steady distribution. IMARC&apos;s
+            estimates for bottled water plants in India show 35–45% gross
+            margin, 15–25% net margin and a 2–4 year payback. Your biggest
+            running cost will be packaging (PET preforms, caps and labels),
+            which is why many brands later add their own PET blow moulding
+            machine. And with GST on packaged drinking water cut to 5% from 22
+            September 2025, your bottles are now easier on your customers&apos;
+            pockets too.
+          </p>
+        </motion.section>
+
+        {/* Setup Time */}
+        <motion.section {...reveal} className="space-y-4">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+            How Long Does It Take to Set Up a Mineral Water Plant?
+          </h2>
+          <p>
+            Vpack Machine installs a complete mineral water plant in 15–45 days,
+            depending on capacity and site readiness. Here&apos;s how the
+            project runs:
+          </p>
+          <BoldList items={setupSteps} ordered />
+        </motion.section>
+
+        {/* Why Choose */}
+        <motion.section
+          {...reveal}
           className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 space-y-4"
         >
           <h2 className="text-xl md:text-2xl font-bold text-gray-900">
             Why Choose Vpack Machine as Your Mineral Water Plant Manufacturer
           </h2>
-
-          <p>
-            We manufacture and supply premium-quality machinery used in a
-            complete mineral water bottling line, including:
-          </p>
-
-          <ul className="list-disc pl-6 space-y-2">
-            <li>
-              ISO-quality machines built for long-term industrial performance
-            </li>
-            <li>
-              Complete turnkey setup — from RO filtration to final packaging
-            </li>
-            <li>
-              Expert installation, training, and after-sales service across
-              Delhi
-            </li>
-            <li>Energy-efficient systems with low operating cost</li>
-            <li>
-              Customizable plant capacity — suitable for startups to large-scale
-              units
-            </li>
-            <li>
-              Nationwide supply with dedicated AMC and spare parts support
-            </li>
-          </ul>
+          <BoldList items={whyChoose} />
         </motion.section>
 
-        {/* Section: Complete Setup & Equipment */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={slideRight}
-          className="space-y-4"
-        >
+        {/* About */}
+        <motion.section {...reveal} className="space-y-4">
           <h2 className="text-xl md:text-2xl font-bold text-gray-900">
-            Complete Mineral Water Bottling Plant Manufacturer Setup
+            About Vpack Machine — 14 Years of Experience
           </h2>
-
           <p>
-            As a full-range{" "}
-            <Link href="/contact" className="text-blue-600 font-bold">
-              mineral water bottling plant manufacturer
-            </Link>
-            , we supply every machine needed to run your plant end-to-end:
+            Vpack Machine Pvt. Ltd. is a{" "}
+            <span className="font-bold">
+              mineral water plant manufacturer in Delhi
+            </span>{" "}
+            that has spent 14 years designing and building water, beverage and
+            liquid packaging machinery. Led by industry expert Suman Verma, we
+            make every machine at our own factory in Pooth Khurd, New Delhi, and
+            have completed more than 3,000 installations across India and in
+            Dubai, Kenya, Uganda and Sri Lanka.
           </p>
-
-          <div className="space-y-3">
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-              <span className="font-bold">Bottle RFC Machine (30 BPM)</span> —
-              Rinses, fills, and caps bottles automatically at 30 bottles per
-              minute, ensuring consistent hygiene and speed.
-            </div>
-
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-              <span className="font-bold">Industrial RO Plant</span> — Removes
-              dissolved impurities, bacteria, and contaminants to deliver pure,
-              BIS-compliant drinking water.
-            </div>
-
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-              <span className="font-bold">SS Water Storage Tank</span> —
-              Food-grade stainless steel tanks that keep treated water safe,
-              corrosion-proof, and contamination-proof.
-            </div>
-
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-              <span className="font-bold">BOPP Labelor</span> — Applies
-              wrap-around BOPP labels with precision and strong, long-lasting
-              adhesion.
-            </div>
-
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-              <span className="font-bold">Sticker Labelor Machine</span> — Adds
-              a professional, retail-ready finish with accurate sticker
-              placement.
-            </div>
-
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-              <span className="font-bold">Capper Machine (VPCL-40M)</span> —
-              High-speed, leak-proof capping for secure bottle sealing.
-            </div>
-
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-              <span className="font-bold">Shrink Wrapping Machine</span> —
-              Bundles finished bottles into transport-ready shrink packs.
-            </div>
-          </div>
-
-          <p className="text-sm text-gray-600 mt-2">
-            Together, these machines form a complete, automated mineral water
-            bottling plant — from raw water input to a sealed, labeled,
-            market-ready bottle.
+          <p>
+            Some of our customers are first-time entrepreneurs setting up a
+            small water plant; others are established names like DS Group,
+            Paras Dairy and Old Monk. Everyone gets the same support from us — a
+            free plant layout, factory testing before dispatch, on-site
+            installation, operator training and AMC.
           </p>
         </motion.section>
 
-        {/* Section: Why Delhi Businesses Trust Vpack */}
+        {/* Quick Facts */}
         <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={slideLeft}
+          {...reveal}
           className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 space-y-4"
         >
           <h2 className="text-xl md:text-2xl font-bold text-gray-900">
-            Why Delhi Businesses Trust Vpack Machine
+            Quick Facts: Vpack Mineral Water Plants
           </h2>
-
-          <p>
-            Delhi NCR is one of India’s fastest-growing markets for packaged
-            drinking water, and choosing a local{" "}
-            <Link href="/contact" className="text-blue-600 font-bold">
-              mineral water plant manufacturer
-            </Link>{" "}
-            in Delhi means faster installation, easier servicing, and quicker
-            access to spare parts. Vpack Machine’s manufacturing base in Delhi
-            allows us to offer shorter lead times, on-site technical support,
-            and personalized plant-layout consultation for entrepreneurs and
-            existing bottling units across the NCR region — without the delays
-            of out-of-state suppliers.
-          </p>
+          <BoldList items={quickFacts} separator=" " />
         </motion.section>
 
-        {/* Section: How Setup Works */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={slideRight}
-          className="space-y-4"
-        >
+        {/* CTA */}
+        <motion.section {...reveal} className="space-y-4">
           <h2 className="text-xl md:text-2xl font-bold text-gray-900">
-            How a Mineral Water Plant Setup Works
+            Start Your Mineral Water Plant with Vpack Machine
           </h2>
-
-          <ol className="list-decimal pl-6 space-y-2">
-            <li>
-              <span className="font-bold">Consultation</span> — Share your
-              budget, target capacity (BPM), and space availability.
-            </li>
-
-            <li>
-              <span className="font-bold">
-                Plant Layout & Machine Selection
-              </span>{" "}
-              — We recommend the right combination of RO plant, filling,
-              capping, and labeling machines.
-            </li>
-
-            <li>
-              <span className="font-bold">Manufacturing & Quality Check</span> —
-              Machines are built and tested to BIS and ISO standards.
-            </li>
-
-            <li>
-              <span className="font-bold">Installation & Commissioning</span> —
-              On-site setup, typically completed in 15–45 days.
-            </li>
-
-            <li>
-              <span className="font-bold">Training & Handover</span> — Your
-              staff is trained on operation and basic maintenance.
-            </li>
-
-            <li>
-              <span className="font-bold">Ongoing AMC Support</span> — Scheduled
-              servicing and spare parts supply post-installation.
-            </li>
-          </ol>
-        </motion.section>
-
-        {/* Section: FAQs */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={slideLeft}
-          className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 space-y-6"
-        >
-          <h2 className="text-xl md:text-2xl font-bold text-gray-900">FAQs</h2>
-
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-bold text-gray-900">
-                1. Who is the best Mineral Water Plant Manufacturer in Delhi?
-              </h3>
-              <p>
-                Vpack Machine is a trusted Mineral Water Plant Manufacturer in
-                Delhi, known for BIS-compliant machinery, turnkey installation,
-                and nationwide AMC support. We supply complete mineral water
-                bottling plants for capacities ranging from small startups to
-                large-scale production units.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                2. What is the cost of setting up a mineral water plant in
-                Delhi?
-              </h3>
-              <p>
-                The cost typically depends on plant capacity, automation level,
-                and machine selection, and can range from a few lakhs for a
-                small-scale unit to higher investments for fully automated,
-                high-capacity plants. Contact Vpack Machine for a customized
-                quotation based on your requirements.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                3. What is the difference between a mineral water plant and a
-                mineral water bottling plant?
-              </h3>
-              <p>
-                A mineral water plant refers mainly to the water filtration and
-                treatment system (like an RO plant), while a mineral water
-                bottling plant manufacturer setup includes the complete line —
-                filtration, bottle filling, capping, labeling, and packaging —
-                needed to produce market-ready bottled water.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                4. What machines are included in a complete mineral water
-                bottling plant manufacturer setup?
-              </h3>
-              <p>
-                A complete setup typically includes an Industrial RO Plant,
-                Bottle RFC Machine, SS Water Storage Tank, Capping Machine,
-                Labeling Machine (BOPP or Sticker), and a Shrink Wrapping
-                Machine — all supplied and installed by Vpack Machine.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                5. How much space is required to set up a mineral water plant?
-              </h3>
-              <p>
-                A small to mid-sized mineral water plant generally requires
-                1,500–3,000 sq. ft. of covered space, depending on machine
-                capacity and storage tank size. Vpack Machine provides a
-                customized layout plan after assessing your available area.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                6. How long does installation take?
-              </h3>
-              <p>
-                Installation of a mineral water plant by Vpack Machine usually
-                takes 15 to 45 days, depending on plant capacity, customization,
-                and site readiness.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                7. Is BIS certification mandatory for a mineral water plant in
-                Delhi?
-              </h3>
-              <p>
-                Yes, BIS certification is legally mandatory for manufacturing
-                and selling packaged drinking water in India, including Delhi.
-                Vpack Machine’s plants are engineered to help you meet BIS
-                quality and hygiene standards.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                8. What bottle capacities can the machines handle?
-              </h3>
-              <p>
-                Vpack Machine’s mineral water plant machinery supports bottle
-                and jar sizes ranging from 200ml to 20-litre jars, with capacity
-                options such as 24, 30, 60, or 90 BPM (bottles per minute).
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                9. Do you provide after-sales service and AMC in Delhi?
-              </h3>
-              <p>
-                Yes, Vpack Machine offers nationwide Annual Maintenance
-                Contracts (AMC), genuine spare parts, and technical support,
-                with faster response times for customers based in Delhi NCR due
-                to our local manufacturing base.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                10. What is the lifespan of Vpack Machine’s mineral water plant
-                equipment?
-              </h3>
-              <p>
-                With regular maintenance, Vpack Machine’s mineral water plant
-                machinery typically lasts 10–15+ years, making it a reliable
-                long-term investment for your bottling business.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                11. Can the mineral water plant be customized for my business
-                size?
-              </h3>
-              <p>
-                Yes, Vpack Machine customizes plant capacity, automation level,
-                and tank size to suit startups, mid-sized businesses, and
-                large-scale manufacturers alike.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-gray-900">
-                12. How do I get a price quote from Vpack Machine?
-              </h3>
-              <p>
-                Simply share your required production capacity, bottle sizes,
-                and location with Vpack Machine’s team, and you’ll receive a
-                customized quotation along with plant layout and consultation
-                support.
-              </p>
-            </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow hover:bg-blue-700 transition-colors"
+            >
+              Get a Quote <span className="ml-2">→</span>
+            </Link>
+            <a
+              href="tel:+919135636541"
+              className="inline-flex items-center justify-center bg-white border border-orange-500 text-orange-600 font-bold py-3 px-6 rounded-lg shadow hover:bg-orange-50 transition-colors"
+            >
+              Call Now <span className="ml-2">→</span>
+            </a>
           </div>
         </motion.section>
+
+        {/* FAQs */}
+        <section className="pt-8 border-t border-gray-200">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
+            FAQs
+          </h2>
+          <FaqList faqs={faqs} />
+        </section>
       </main>
     </div>
   );

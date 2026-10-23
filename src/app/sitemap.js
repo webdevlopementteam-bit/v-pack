@@ -33,6 +33,7 @@ const productPages = [
 const servicePages = [
   "/water-bottling-plant",
   "/mineral-water-plant-manufacturer",
+  "/packaged-drinking-water-plant-manufacturer",
   "/soda-plant-manufacturer",
   "/liquid-filling-plant-manufacturer",
   "/liquid-filling-plant-manufacturer-in-haryana",
