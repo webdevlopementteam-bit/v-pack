@@ -29,7 +29,8 @@ export default function WaterBottlingPlantPage() {
       {/* Blog Title */}
       <div className="max-w-5xl mx-auto px-4 pt-10">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
-          Water Bottling Plant Manufacturers in Delhi
+          How the Right Water Bottling Plant Manufacturer In Delhi Boosts
+          Business Growth
         </h1>
       </div>
 

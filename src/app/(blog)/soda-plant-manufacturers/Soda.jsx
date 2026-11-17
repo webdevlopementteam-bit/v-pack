@@ -23,7 +23,8 @@ export default function BlogPostPage() {
         >
           {/* Blog Title */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
-            Best Soda Plant Manufacturers: 7 Expert Tips to Choose
+            7 Expert Tips to Choose the Best Soda Plant Manufacturer for Your
+            Business
           </h1>
 
           {/* Featured Image */}
