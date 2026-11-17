@@ -7,6 +7,13 @@ import { motion } from "framer-motion";
 export default function SodaPlantPage() {
   return (
     <div className="w-full bg-white text-gray-900 text-[16px] lg:text-[18px] leading-relaxed font-sans overflow-x-hidden">
+      {/* Blog Title */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-10 pb-6">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+          Carbonated Beverage Plant Supplier
+        </h1>
+      </div>
+
       {/* --- HERO / BANNER SECTION --- */}
       <section className="relative w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white pt-8 pb-16 px-4 md:px-12 overflow-hidden">
         <div className="relative w-full lg:w-[90%] h-[200px] sm:h-[550px] lg:h-[60vh] mx-auto overflow-hidden">

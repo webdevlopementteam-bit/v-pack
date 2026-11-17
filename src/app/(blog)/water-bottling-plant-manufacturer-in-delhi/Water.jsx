@@ -11,6 +11,11 @@ export default function ProductB1Page() {
     <div className="w-full bg-white text-gray-800 font-sans leading-relaxed">
       {/* Main Content Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-base lg:text-lg">
+        {/* Blog Title */}
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-8">
+          Water Bottling Plant Manufacturer in Delhi
+        </h1>
+
         {/* Top Product Banner Image (b1) */}
         <section className="mb-8 w-full flex justify-center">
           <div className="relative w-full max-w-4xl h-[250px] sm:h-[350px] md:h-[600px] border rounded-lg overflow-hidden shadow-sm">

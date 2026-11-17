@@ -7,6 +7,13 @@ import { motion } from "framer-motion";
 export default function SodaPlantPage() {
   return (
     <div className="w-full bg-white text-gray-900 text-[16px] lg:text-[18px] leading-relaxed font-sans overflow-x-hidden">
+      {/* Blog Title */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-10 pb-6">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+          Beverage Plant Manufacturer
+        </h1>
+      </div>
+
       {/* Responsive Image Container: Full width on mobile, 60% width & 40vh height on lg screens */}
       <div className="relative w-full lg:w-[60%] h-[250px] sm:h-[350px] lg:h-[40vh] mx-auto overflow-hidden">
         <Image

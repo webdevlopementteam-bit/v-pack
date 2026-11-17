@@ -34,6 +34,12 @@ export default function PackagedDrinkingWaterPlantPage() {
         variants={fadeIn}
         className="max-w-5xl mx-auto px-4 py-10 text-[16px] lg:text-[18px] leading-relaxed"
       >
+        {/* Blog Title */}
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-8">
+          Best Tips to Choose the Right Packaged Drinking Water Plant
+          Manufacturer: Complete Guide 2026
+        </h1>
+
         {/* Top Image Banner Section */}
         <div className="mb-10 rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-gray-50 flex justify-center p-4">
           <Image

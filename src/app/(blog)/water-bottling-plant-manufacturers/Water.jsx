@@ -26,6 +26,13 @@ export default function WaterBottlingPlantPage() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
+      {/* Blog Title */}
+      <div className="max-w-5xl mx-auto px-4 pt-10">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
+          Water Bottling Plant Manufacturers in Delhi
+        </h1>
+      </div>
+
       {/* Top Header / Banner */}
       <div className="w-full max-w-6xl min-h-[50vh] md:min-h-screen flex items-center justify-center bg-white p-3 sm:p-4 mx-auto">
         <div className="w-full h-auto md:h-[90vh] bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden flex items-center justify-center">

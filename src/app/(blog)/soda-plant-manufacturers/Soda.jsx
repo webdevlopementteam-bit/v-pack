@@ -21,6 +21,11 @@ export default function BlogPostPage() {
           variants={fadeIn}
           className="space-y-8 text-[16px] lg:text-[18px] text-slate-700 leading-relaxed"
         >
+          {/* Blog Title */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
+            Best Soda Plant Manufacturers: 7 Expert Tips to Choose
+          </h1>
+
           {/* Featured Image */}
           <div className="relative w-full h-72 sm:h-96 md:h-[450px] bg-slate-100 overflow-hidden rounded-2xl shadow-sm">
             <Image

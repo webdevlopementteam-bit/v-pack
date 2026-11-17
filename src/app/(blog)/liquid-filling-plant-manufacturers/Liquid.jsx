@@ -7,8 +7,16 @@ import { motion } from "framer-motion";
 export default function LiquidFillingPlantPage() {
   return (
     <div className="w-full bg-white text-gray-900 text-[16px] lg:text-[18px] leading-relaxed font-sans overflow-x-hidden">
+      {/* Blog Title */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-10">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+          Best Liquid Filling Plant Manufacturer in Delhi — Everything You Need
+          to Know Before Buying
+        </h1>
+      </div>
+
       {/* --- HERO / BANNER SECTION --- */}
-      <section className="relative w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white min-h-[80px] md:min-h-[110px] py-2 px-2 md:px-8 overflow-hidden">
+      <section className="relative w-full bg-white min-h-[80px] md:min-h-[110px] py-2 px-2 md:px-8 overflow-hidden">
         <div className="relative w-full  h-[250px] sm:h-[500px] lg:h-[80vh] mx-auto overflow-hidden">
           <Image
             src="/images/blog/liquids.png"
